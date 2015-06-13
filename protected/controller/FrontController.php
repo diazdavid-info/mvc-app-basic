@@ -9,17 +9,10 @@
 namespace Controller;
 
 
+use Conf\Main;
+
 class FrontController extends Controller
 {
-
-    /**
-     * Constante que indica el controlador por defecto
-     */
-    const DEFAULT_CONTROLLER = "Default";
-    /**
-     * Constante que indica la acción por defecto
-     */
-    const DEFAULT_ACTION = "start";
     /**
      * Atributo que almacena el nombre del controlador
      * @var string
@@ -38,6 +31,7 @@ class FrontController extends Controller
     {
         $this->setAttributes();
         $this->callController();
+
     }
 
     /**
@@ -46,8 +40,8 @@ class FrontController extends Controller
      */
     private function setAttributes($args = null)
     {
-        $this->_controller = (empty($_GET['controller'])) ? self::DEFAULT_CONTROLLER : ucfirst($_GET['controller']);
-        $this->_accion = (empty($_GET['action'])) ? self::DEFAULT_ACTION : $_GET['action'];
+        $this->_controller = (empty($_GET['controller'])) ? Main::getDefaultController() : ucfirst($_GET['controller']);
+        $this->_accion = (empty($_GET['action'])) ? Main::getDefaultAction() : $_GET['action'];
     }
 
     /**

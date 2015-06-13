@@ -18,7 +18,8 @@
   "autoload" : {
     "psr-4" : {
       "Test\\": "tests/",
-      "Controller\\": "protected/controller"
+      "Controller\\": "protected/controller",
+      "Conf\\": "protected/conf"
     }
   }
 }

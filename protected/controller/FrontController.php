@@ -9,7 +9,7 @@
 namespace Controller;
 
 
-class FrontController
+class FrontController extends Controller
 {
 
     /**
@@ -24,42 +24,51 @@ class FrontController
      * Atributo que almacena el nombre del controlador
      * @var string
      */
-    private static $_controller;
+    private $_controller;
     /**
      * Atributo que almacena el nombre de la acción
      * @var string
      */
-    private static $_accion;
+    private $_accion;
 
     /**
      * Método que entrada de la aplicación
      */
-    public static function init()
+    public function init()
     {
-        self::setAtributes();
-        self::callController();
+        $this->setAttributes();
+        $this->callController();
     }
 
     /**
      * Método que establece el valor a los atributos de la clase
      * @param array $args
      */
-    private static function setAtributes($args = null)
+    private function setAttributes($args = null)
     {
-        self::$_controller = (empty($_GET['controller'])) ? self::DEFAULT_CONTROLLER : ucfirst($_GET['controller']);
-        self::$_accion = (empty($_GET['accion'])) ? self::DEFAULT_ACTION : $_GET['accion'];
+        $this->_controller = (empty($_GET['controller'])) ? self::DEFAULT_CONTROLLER : ucfirst($_GET['controller']);
+        $this->_accion = (empty($_GET['action'])) ? self::DEFAULT_ACTION : $_GET['action'];
     }
 
     /**
      * Método que ejecuta la acción del controlador indicado
      */
-    private static function callController()
+    private function callController()
     {
-        if (method_exists(__NAMESPACE__ . '\\' . self::$_controller . 'Controller', self::$_accion)) {
-            $class = __NAMESPACE__ . '\\' . self::$_controller . 'Controller';
-            call_user_func([new $class, self::$_accion]);
+        if (method_exists(__NAMESPACE__ . '\\' . $this->_controller . 'Controller', $this->_accion)) {
+            call_user_func([$this->instanceClass(), $this->_accion]);
         } else {
-            header("Location: /");
+            $this->redirect('/');
         }
+    }
+
+    /**
+     * Método que genera una instancia de un controlador
+     * @return object
+     */
+    private function instanceClass()
+    {
+        $class = __NAMESPACE__ . '\\' . $this->_controller . 'Controller';
+        return new $class;
     }
 }

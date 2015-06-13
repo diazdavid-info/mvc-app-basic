@@ -1,0 +1,24 @@
+{
+  "name" : "diazdavid/mvc-app-basic",
+  "description" : "Basic implementation for mvc pattern",
+  "minium-stability" : "dev",
+  "license" : "MIT",
+  "authors" : [
+    {
+      "name" : "David Díaz"
+    }
+  ],
+  "require" : {
+    "php" : ">=5.5.20"
+  },
+  "require-dev" : {
+    "phpunit/phpunit" : "~4.0",
+    "fabpot/php-cs-fixer" : "~2.0@dev"
+  },
+  "autoload" : {
+    "psr-4" : {
+      "Test\\": "tests/",
+      "Controller\\": "protected/controller"
+    }
+  }
+}

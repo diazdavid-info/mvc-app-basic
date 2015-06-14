@@ -20,9 +20,10 @@
   "autoload" : {
     "psr-4" : {
       "Test\\": "tests/",
-      "Controller\\": "protected/controller",
-      "Conf\\": "protected/conf",
-      "View\\": "protected/view"
+      "App\\Controller\\": "app/controller",
+      "App\\Conf\\": "app/conf",
+      "App\\View\\": "app/view",
+      "Src\\Controller\\": "src/controller"
     }
   }
 }

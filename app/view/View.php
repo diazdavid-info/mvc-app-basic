@@ -6,10 +6,10 @@
  * Time: 20:27
  */
 
-namespace View;
+namespace App\View;
 
 
-use Conf\Main;
+use App\Conf\Main;
 
 class View
 {

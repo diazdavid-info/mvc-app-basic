@@ -6,10 +6,9 @@
  * Time: 20:33
  */
 
-namespace Controller;
+namespace App\Controller;
 
-
-use Conf\Main;
+use App\Conf\Main;
 
 class FrontController extends Controller
 {
@@ -49,7 +48,7 @@ class FrontController extends Controller
      */
     private function callController()
     {
-        if (method_exists(__NAMESPACE__ . '\\' . $this->_controller . 'Controller', $this->_accion)) {
+        if (method_exists('Src\\Controller\\' . $this->_controller . 'Controller', $this->_accion)) {
             call_user_func([$this->instanceClass(), $this->_accion]);
         } else {
             $this->redirect('/');
@@ -62,7 +61,7 @@ class FrontController extends Controller
      */
     private function instanceClass()
     {
-        $class = __NAMESPACE__ . '\\' . $this->_controller . 'Controller';
+        $class = 'Src\\Controller\\' . $this->_controller . 'Controller';
         return new $class;
     }
 }

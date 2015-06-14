@@ -6,7 +6,7 @@
  * Time: 19:59
  */
 
-namespace Conf;
+namespace App\Conf;
 
 
 class Main
@@ -44,7 +44,7 @@ class Main
 
     public static function getRouteViews()
     {
-        return 'public/views';
+        return 'src/views';
     }
 
 }

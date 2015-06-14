@@ -6,7 +6,7 @@
  * Time: 19:05
  */
 
-use \Controller\FrontController;
+use App\Controller\FrontController;
 
 require('vendor/autoload.php');
 

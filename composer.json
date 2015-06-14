@@ -2,10 +2,11 @@
   "name" : "diazdavid/mvc-app-basic",
   "description" : "Basic implementation for mvc pattern",
   "minium-stability" : "dev",
-  "license" : "MIT",
+  "license" : "GPL-3.0+",
   "authors" : [
     {
-      "name" : "David Díaz"
+      "name" : "David Díaz",
+      "email": "diazdavid.info@gmail.com"
     }
   ],
   "require" : {
@@ -20,7 +21,8 @@
     "psr-4" : {
       "Test\\": "tests/",
       "Controller\\": "protected/controller",
-      "Conf\\": "protected/conf"
+      "Conf\\": "protected/conf",
+      "View\\": "protected/view"
     }
   }
 }

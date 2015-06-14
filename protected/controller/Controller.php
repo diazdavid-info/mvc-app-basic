@@ -9,8 +9,24 @@
 namespace Controller;
 
 
+use View\View;
+
 class Controller
 {
+    /**
+     * Atributo que almacena una instancia de la clase View
+     * @var object
+     */
+    protected $view;
+
+    /**
+     * Constructor
+     */
+    function __construct()
+    {
+        $this->view = new View();
+    }
+
 
     /**
      * Método que redirecciona a una url

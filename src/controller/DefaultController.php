@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * Controlador por defecto
  * User: daviddiaz
  * Date: 13/6/15
  * Time: 20:44
@@ -14,9 +14,12 @@ use App\Controller\Controller;
 class DefaultController extends Controller
 {
 
+    /**
+     * Método con la acción start
+     */
     public function start()
     {
-        $this->view->render('start.tmpl');
+        $this->view->render('default', 'start.tmpl', ['name' => 'David']);
     }
 
 }

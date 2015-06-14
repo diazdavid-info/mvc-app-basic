@@ -20,6 +20,7 @@ class Main
     {
         return $conf['route'] = [
             'default' => 'Default',
+            'site' => 'Site',
         ];
     }
 
@@ -39,6 +40,11 @@ class Main
     public static function getDefaultAction()
     {
         return 'start';
+    }
+
+    public static function getRouteViews()
+    {
+        return 'public/views';
     }
 
 }

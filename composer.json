@@ -2,13 +2,15 @@
   "name" : "diazdavid/mvc-app-basic",
   "description" : "Basic implementation for mvc pattern",
   "minium-stability" : "dev",
-  "license" : "MIT",
+  "license" : "GPL-3.0+",
   "authors" : [
     {
-      "name" : "David Díaz"
+      "name" : "David Díaz",
+      "email": "diazdavid.info@gmail.com"
     }
   ],
   "require" : {
+    "twig/twig": "~1.0",
     "php" : ">=5.5.20"
   },
   "require-dev" : {
@@ -18,7 +20,10 @@
   "autoload" : {
     "psr-4" : {
       "Test\\": "tests/",
-      "Controller\\": "protected/controller"
+      "App\\Controller\\": "app/controller",
+      "App\\Conf\\": "app/conf",
+      "App\\View\\": "app/view",
+      "Src\\Controller\\": "src/controller"
     }
   }
 }

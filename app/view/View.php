@@ -18,27 +18,31 @@ class View
      * Atributo que almacena una instancia del cargador de Twig
      * @var \Twig_Loader_Filesystem
      */
-    protected $loader;
+    protected $_loader;
+    /**
+     * Atributo que almacena una instancia del contexto de Twig
+     * @var
+     */
+    protected $_twig;
 
     /**
      * COnstructor
      */
     function __construct()
     {
-
+        $this->_loader = new \Twig_Loader_Filesystem(Main::getRouteViews());
+        $this->_twig = new \Twig_Environment($this->_loader);
     }
 
     /**
      * Método que renderiza una vista
-     * @param string $directory
      * @param string $view
      * @param array $contest
      */
-    public function render($directory, $view, $contest = array())
+    public function render($view, $contest = array())
     {
-        $this->loader = new \Twig_Loader_Filesystem(Main::getRouteViews());
-        $twig = new \Twig_Environment($this->loader);
-        $template = $twig->loadTemplate($view);
+        $template = $this->_twig->loadTemplate($view);
         echo $template->render($contest);
+        exit();
     }
 }

@@ -12,6 +12,15 @@ namespace App\Conf;
 class Main
 {
     /**
+     * Método que configura el controlador por defecto
+     * @return string
+     */
+    public static function getDefaultController()
+    {
+        return self::getRoute()['default'];
+    }
+
+    /**
      * Método que contiene la configuración de las rutas de la aplicación.
      * El valor indica la ruta y la key indica el controlador
      * @return array
@@ -25,15 +34,6 @@ class Main
     }
 
     /**
-     * Método que configura el controlador por defecto
-     * @return string
-     */
-    public static function getDefaultController()
-    {
-        return self::getRoute()['default'];
-    }
-
-    /**
      * Método que configura la acción por defecto de los controladores
      * @return string
      */
@@ -42,9 +42,17 @@ class Main
         return 'start';
     }
 
+    /**
+     * Método donde se declaran las rutas de las vistas
+     * @return array
+     */
     public static function getRouteViews()
     {
-        return 'src/views';
+        return [
+            'src/views/default',
+            'src/views/template',
+        ];
     }
+
 
 }

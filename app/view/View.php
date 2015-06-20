@@ -14,8 +14,15 @@ use App\Conf\Main;
 class View
 {
 
+    /**
+     * Atributo que almacena una instancia del cargador de Twig
+     * @var \Twig_Loader_Filesystem
+     */
     protected $loader;
 
+    /**
+     * COnstructor
+     */
     function __construct()
     {
 
@@ -29,7 +36,7 @@ class View
      */
     public function render($directory, $view, $contest = array())
     {
-        $this->loader = new \Twig_Loader_Filesystem(Main::getRouteViews() . '/' . $directory);
+        $this->loader = new \Twig_Loader_Filesystem(Main::getRouteViews());
         $twig = new \Twig_Environment($this->loader);
         $template = $twig->loadTemplate($view);
         echo $template->render($contest);

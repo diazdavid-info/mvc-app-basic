@@ -9,6 +9,9 @@
 namespace App\Conf;
 
 
+use App\View\TwigView;
+use App\View\View;
+
 class Main
 {
     /**
@@ -52,6 +55,15 @@ class Main
             'src/views/default',
             'src/views/template',
         ];
+    }
+
+    /**
+     * Método donde se declara la instancia de la View
+     * @return View
+     */
+    public static function getInstanceView()
+    {
+        return new TwigView();
     }
 
 

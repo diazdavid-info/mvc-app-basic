@@ -7,8 +7,9 @@
  */
 
 use App\Controller\FrontController;
+use App\View\TwigView;
 
 require('vendor/autoload.php');
 
 $frontController = new FrontController();
-$frontController->init();
+$frontController->init(new TwigView());

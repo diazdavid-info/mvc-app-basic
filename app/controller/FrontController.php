@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Conf\Main;
+use App\View\View;
 
 class FrontController extends Controller
 {
@@ -26,7 +27,7 @@ class FrontController extends Controller
     /**
      * Método que entrada de la aplicación
      */
-    public function init()
+    public function init(View $view)
     {
         $this->setAttributes();
         $this->callController();

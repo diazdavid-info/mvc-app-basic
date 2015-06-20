@@ -9,22 +9,24 @@
 namespace App\Controller;
 
 
+use App\Conf\Main;
+use App\View\TwigView;
 use App\View\View;
 
 class Controller
 {
     /**
      * Atributo que almacena una instancia de la clase View
-     * @var object
+     * @var View
      */
-    protected $view;
+    protected $_view;
 
     /**
      * Constructor
      */
     function __construct()
     {
-        $this->view = new View();
+        $this->_view = Main::getInstanceView();
     }
 
 

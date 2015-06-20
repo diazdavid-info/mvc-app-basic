@@ -19,7 +19,7 @@ class DefaultController extends Controller
      */
     public function start()
     {
-        $this->view->render('start.tmpl', ['name' => 'David']);
+        $this->_view->render('start.tmpl', ['name' => 'David']);
     }
 
 }
